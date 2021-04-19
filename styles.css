@@ -1,0 +1,126 @@
+:root {
+    --border-size: 2px;
+    --border-color: rgba(0, 0, 0, 0.5);
+}
+
+html {
+    font-size: 16px;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+#controls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+    text-align: center;
+    padding: 0.5rem;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#controls input {
+    height: 2rem;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.25rem;
+    font-weight: bold;
+    padding-left: 10px;
+    outline: 0;
+}
+#controls button {
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.25rem;
+    outline: 0;
+}
+
+#tree_view {
+    padding-top: 3rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+.node {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px 10px 0 10px;
+}
+
+.node.root:before {
+    display: none;
+}
+
+.node.left:not(:only-child):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 20px;
+    border-top: var(--border-size) solid var(--border-color);
+    border-left: var(--border-size) solid var(--border-color);
+    border-top-left-radius: 5px;
+}
+
+.node.right:not(:only-child):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    width: 50%;
+    height: 20px;
+    border-top: var(--border-size) solid var(--border-color);
+    border-right: var(--border-size) solid var(--border-color);
+    border-top-right-radius: 5px;
+}
+
+.node:only-child:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    left: 50%;
+    height: 20px;
+    border-left: var(--border-size) solid var(--border-color);
+}
+
+.value {
+    display: inline-block;
+    background-color: #b8b8ff;
+    height: 20px;
+    line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: var(--border-size) solid var(--border-color);
+}
+
+.children {
+    display: block;
+    padding: 10px 10px 0 10px;
+}
+
+.children:after {
+    content: '';
+    position: absolute;
+    top: 54px;
+    height: 10px;
+    width: 0;
+    left: 50%;
+    border-left: var(--border-size) solid var(--border-color);
+}
+.children:empty:after {
+    display: none;
+}
